@@ -1,3 +1,5 @@
 cloudscraper
+undetected_chromedriver
+cfscrape
 Flask
 Gunicorn
