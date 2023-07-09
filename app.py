@@ -19,9 +19,9 @@ def cloud_scrapper():
     try:
         scraper = cloudscraper.create_scraper()
         source = scraper.get(url).text
-        return source, 200
+        return {'source':source}, 200
     except Exception as ex:
-        return {'error': ex, 'traceback': traceback.format_exc()}, 400
+        return {'error': str(ex)}, 400
 
 @app.route('/uc')
 def uc():
@@ -31,10 +31,10 @@ def uc():
     try:
         driver = uc.Chrome() 
         driver.get(url)
-        return driver.page_source, 200
+        return {'source':driver.page_source}, 200
 
     except Exception as ex:
-        return {'error': ex, 'traceback': traceback.format_exc()}, 400
+        return {'error': str(ex)}, 400
 
 if __name__ == '__main__':
     app.run()
