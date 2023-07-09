@@ -30,7 +30,7 @@ def uc():
 
     try:
         driver = uc.Chrome() 
-        driver.get('https://opensea.io/rankings/trending')
+        driver.get(url)
         return driver.page_source, 200
 
     except Exception as ex:
