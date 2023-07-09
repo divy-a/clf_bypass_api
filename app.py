@@ -18,7 +18,7 @@ def search():
     try:
         scraper = cloudscraper.create_scraper()
         source = scraper.get(url).text
-        return source, 200
+        return {'source': source}, 200
     except Exception as ex:
         return {'error': ex, 'traceback': traceback.format_exc()}, 400
 
