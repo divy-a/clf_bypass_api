@@ -16,7 +16,7 @@ def search():
     url = request.args.get('url')
 
     try:
-        scraper = cloudscraper.create_scraper()
+        scraper = cloudscraper.create_scraper(delay=10, browser="chrome")
         source = scraper.get(url).text
         return {'source': source}, 200
     except Exception as ex:
